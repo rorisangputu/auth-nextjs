@@ -22,7 +22,12 @@ const Page = async () => {
       </div>
 
       {/* Email/Password Sign Up */}
-      <form className="space-y-4" action={() => {}}>
+      <form
+        className="space-y-4"
+        action={async () => {
+          "use server";
+        }}
+      >
         <Input
           name="email"
           placeholder="Email"

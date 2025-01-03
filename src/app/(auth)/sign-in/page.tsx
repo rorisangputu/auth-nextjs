@@ -9,6 +9,7 @@ const Page = async () => {
       <h1 className="text-2xl font-bold text-center mb-6">Sign In</h1>
 
       <GithubSignIn />
+
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
@@ -21,7 +22,12 @@ const Page = async () => {
       </div>
 
       {/* Email/Password Sign In */}
-      <form className="space-y-4" action={() => {}}>
+      <form
+        className="space-y-4"
+        action={async () => {
+          "use server";
+        }}
+      >
         <Input
           name="email"
           placeholder="Email"

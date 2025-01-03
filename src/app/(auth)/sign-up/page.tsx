@@ -1,15 +1,9 @@
-import { signUp } from "@/lib/actions";
+import { GithubSignIn } from "@/components/github-sign-in";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { redirect } from "next/navigation";
 import Link from "next/link";
-import { GithubSignIn } from "@/components/github-sign-in";
-import { auth } from "@/lib/auth";
 
 const Page = async () => {
-  const session = await auth();
-  if (session) redirect("/");
-
   return (
     <div className="w-full max-w-sm mx-auto space-y-6">
       <h1 className="text-2xl font-bold text-center mb-6">Create Account</h1>
@@ -28,16 +22,7 @@ const Page = async () => {
       </div>
 
       {/* Email/Password Sign Up */}
-      <form
-        className="space-y-4"
-        action={async (formData) => {
-          "use server";
-          const res = await signUp(formData);
-          if (res.success) {
-            redirect("/sign-in");
-          }
-        }}
-      >
+      <form className="space-y-4" action={() => {}}>
         <Input
           name="email"
           placeholder="Email"

@@ -1,11 +1,16 @@
 import { SignOut } from "@/components/sign-out";
+import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 const Page = async () => {
+  const session = await auth();
+  if (!session) redirect("/sign-in");
+  const user = session.user;
   return (
     <>
       <div className="bg-gray-100 rounded-lg p-4 text-center mb-6">
         <p className="text-gray-600">Signed in as:</p>
-        <p className="font-medium">TODO App</p>
+        <p className="font-medium">{user?.name}</p>
       </div>
 
       <SignOut />

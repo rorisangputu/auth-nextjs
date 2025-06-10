@@ -10,7 +10,7 @@ const Page = async () => {
     <>
       <div className="bg-gray-100 rounded-lg p-4 flex flex-col items-center text-center mb-6">
         <p className="text-gray-600">Signed in as:</p>
-        <p className="font-medium">{user?.name}</p>
+        <p className="font-medium">{user?.name || user?.email}</p>
         {user?.image && 
           // eslint-disable-next-line @next/next/no-img-element
           <img src={user?.image as string} alt={user?.name as string} 

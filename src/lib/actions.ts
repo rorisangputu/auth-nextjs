@@ -2,7 +2,7 @@ import db from "./db";
 import { executeAction } from "./executeAction";
 import { schema } from "./schema";
 
-const signUp = async (formData: FormData) => {
+export const signUp = async (formData: FormData) => {
     return executeAction({
         actionFn: async () => {
             const email = formData.get("email");
